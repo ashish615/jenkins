@@ -1,4 +1,10 @@
 pipeline {
+environment {
+registry = "YourDockerhubAccount/YourRepository"
+registryCredential = 'dockerhub_id'
+dockerImage = ''
+}
+
 //None parameter in the agent section means that no global agent will be allocated for the entire Pipeline’s
 //execution and that each stage directive must specify its own agent section.
     agent none
@@ -48,6 +54,30 @@ pipeline {
                 }
             }
         }
+        
+        
+		
+	stage('Building our image') {
+		steps{
+			script {
+				dockerImage = docker.build registry + ":$BUILD_NUMBER"
+				}
+		}
+		}
+	stage('Deploy our image') {
+			steps{
+			script {
+			docker.withRegistry( '', registryCredential ) {
+			dockerImage.push()
+			}
+			}
+			}
+	}
+	stage('Cleaning up') {
+			steps{
+			sh "docker rmi $registry:$BUILD_NUMBER"
+			}
+	}
       
     }
 }
