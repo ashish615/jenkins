@@ -59,7 +59,11 @@ dockerImage = ''
 		
 	stage('Building our image') {
 		steps{
-			sh "docker build -t ashishiiitv/myapp . "
+			script {
+                    def customImage = docker.build("ashishiiitv/myapp:${env.BUILD_ID}")
+                    customImage.push()
+                }
+			//sh "docker build -t ashishiiitv/myapp . "
 			//script {
 			//	dockerImage = docker.build registry + ":$BUILD_NUMBER"
 			//	}
