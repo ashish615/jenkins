@@ -59,9 +59,10 @@ dockerImage = ''
 		
 	stage('Building our image') {
 		steps{
-			script {
-				dockerImage = docker.build registry + ":$BUILD_NUMBER"
-				}
+			sh "docker build -t ashishiiitv/myapp . "
+			//script {
+			//	dockerImage = docker.build registry + ":$BUILD_NUMBER"
+			//	}
 		}
 		}
 	stage('Deploy our image') {
