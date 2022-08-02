@@ -1,6 +1,6 @@
 pipeline {
 environment {
-registry = "YourDockerhubAccount/YourRepository"
+registry = "ashish/test"
 registryCredential = 'dockerhub_id'
 dockerImage = ''
 }
