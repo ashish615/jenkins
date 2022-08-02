@@ -1,6 +1,6 @@
 pipeline {
 environment {
-registry = "ashish/test"
+registry = "ashishiiitv/myapp"
 registryCredential = 'dockerhub_id'
 dockerImage = ''
 }
