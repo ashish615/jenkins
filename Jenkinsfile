@@ -61,21 +61,18 @@ dockerImage = ''
 	stage('Building our image') {
 		steps{
 			script {
-			docker login --username="ashishiiitv" --password="I_lovemyfamily1"
+			
                     def customImage = docker.build("ashishiiitv/myapp:${env.BUILD_ID}")
-                    customImage.push()
+                    
                 }
-			//sh "docker build -t ashishiiitv/myapp . "
-			//script {
-			//	dockerImage = docker.build registry + ":$BUILD_NUMBER"
-			//	}
+			
 		}
 		}
 	stage('Deploy our image') {
 			steps{
 			script {
 			docker.withRegistry( '', registryCredential ) {
-			dockerImage.push()
+			customImage.push()
 			}
 			}
 			}
