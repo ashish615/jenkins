@@ -56,7 +56,7 @@ pipeline {
 
 		
 	stage('Building our image') {
-		//steps{
+		steps{
 			script {
 			
                    //def customImage = docker.build("ashishiiitv/myapp:${env.BUILD_ID}")
@@ -65,17 +65,17 @@ pipeline {
                     
                 }
 			
-		//}
+		}
 		}
 		
 	stage('Deploy our image') {
-			//steps{
+			steps{
 			script {
 				docker.withRegistry('https://registry.hub.docker.com', 'dockerhub_id' ) 
 				{customImage.push()}
 			
 			}
-			//}
+			}
 	}	
 
 
