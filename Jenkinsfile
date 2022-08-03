@@ -79,11 +79,11 @@ pipeline {
 	}	
 
 
-	stage('Cleaning up') {
-			steps{
-			sh "docker rmi ashishiiitv/myapp:latest"
-			}
-			}
+	//stage('Cleaning up') {
+	//		steps{
+	//		sh "docker rmi ashishiiitv/myapp:latest"
+	//		}
+	//	}
 	}
       
     }
