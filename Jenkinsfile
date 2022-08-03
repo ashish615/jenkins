@@ -61,6 +61,7 @@ dockerImage = ''
 	stage('Building our image') {
 		steps{
 			script {
+			docker login --username="ashishiiitv" --password="I_lovemyfamily1"
                     def customImage = docker.build("ashishiiitv/myapp:${env.BUILD_ID}")
                     customImage.push()
                 }
