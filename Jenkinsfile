@@ -58,7 +58,7 @@ pipeline {
 		steps{
 			script {
 			
-                    def customImage = docker.build("ashishiiitv/myapp:${env.BUILD_ID}")
+                    customImage = docker.build("ashishiiitv/myapp:${env.BUILD_ID}")
                     
                 }
 			
