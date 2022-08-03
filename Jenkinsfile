@@ -58,8 +58,8 @@ pipeline {
 	stage('Building our image') {
 		steps{
 			script {
-			
-                   customImage = docker.build("ashishiiitv/myapp:${env.BUILD_ID}")
+			//${env.BUILD_ID}
+                   customImage = docker.build("ashishiiitv/myapp:latest")
                    
                     
                 }
@@ -81,7 +81,7 @@ pipeline {
 
 	stage('Cleaning up') {
 			steps{
-			script {docker rmi ashishiiitv/myapp:${env.BUILD_ID}
+			sh "docker rmi ashishiiitv/myapp:latest"
 			}
 			}
 	}
