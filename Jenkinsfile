@@ -81,7 +81,8 @@ pipeline {
 
 	stage('Cleaning up') {
 			steps{
-			sh "docker rmi -f ashishiiitv/myapp:${env.BUILD_ID}"
+			script {docker rmi ashishiiitv/myapp:${env.BUILD_ID}
+			}
 			}
 	}
       
