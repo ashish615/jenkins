@@ -55,14 +55,7 @@ dockerImage = ''
             }
         }
         
-        stage('Clone repository') {
-        /* Let's make sure we have the repository cloned to our workspace */
-	steps{
-			script {
-        			checkout scm
-        			}
-        			}
-    	}
+
 
 		
 	stage('Building our image') {
