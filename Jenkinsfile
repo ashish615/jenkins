@@ -73,9 +73,9 @@ dockerImage = ''
 	stage('Deploy our image') {
 			steps{
 			script {
-			docker.withRegistry('https://registry.hub.docker.com', 'dockerhub_id' ) {
-			customImage.push()
-			//}
+				docker.withRegistry('https://registry.hub.docker.com', 'dockerhub_id' ) {
+				customImage.push()
+			}
 			}
 			}
 	}
