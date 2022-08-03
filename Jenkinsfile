@@ -67,8 +67,9 @@ pipeline {
 		}
 		}
 	
-	//https://registry.hub.docker.com	
+		
 	stage('Deploy our image') {
+		//https://registry.hub.docker.com
 			steps{
 			script {
 				docker.withRegistry('', 'dockerhub_id' ) 
@@ -79,12 +80,12 @@ pipeline {
 	}	
 
 
-	//stage('Cleaning up') {
-	//		steps{
-	//		sh "docker rmi ashishiiitv/myapp:latest"
-	//		}
-	//	}
+	stage('Cleaning up') {
+			steps{
+			sh "docker rmi ashishiiitv/myapp:latest"
+			}
+		}
 	}
       
     }
-}
+
